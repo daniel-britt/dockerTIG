@@ -21,7 +21,7 @@
 - Default login credentails are `admin` and `password`.
 - Add data source
 - Select InfluxDB
-- Set URL = `http://localhost:8086`
+- Set URL = `http://ENTER_HOST_IP_HERE:8086`
 - InfluxDB Details:
   - Database = `telegraf`
   - User = `telegraf`
