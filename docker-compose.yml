@@ -1,0 +1,36 @@
+version: '3'
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    networks:
+      - graf
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=password
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    deploy:
+      restart_policy:
+        condition: on-failure
+  influxdb:
+    image: influxdb
+    container_name: influxdb
+    networks:
+      - graf
+    ports: 
+      - 8086:8086
+    environment:
+      - $PWD/influxdb.conf:/etc/influxdb/influxdb.conf:ro influxdb -config /etc/influxdb/influxdb.conf
+  telegraf:
+    image: telegraf
+    container_name: telegraf
+    networks:
+      - graf
+    environment:
+      - HOST_PROC=/host/proc
+    volumes:
+      - /proc:/host/proc:ro
+      - $PWD/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+networks:
+  graf:
