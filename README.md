@@ -28,3 +28,4 @@
   - Password = `password`
 - Save & Test
 - Create Dashboards
+  - Check out dashboard 3967
