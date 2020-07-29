@@ -28,4 +28,4 @@
   - Password = `password`
 - Save & Test
 - Create Dashboards
-  - Check out dashboard 3967
+  - Check out [dashboard 3967](https://grafana.com/grafana/dashboards/3967)
